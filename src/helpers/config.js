@@ -7,5 +7,5 @@ dotenv.config({ path: '.env' })
 module.exports = {
   TOKEN: process.env.BOT_TOKEN || '',
   PORT: process.env.PORT || 3000,
-  URL: process.env.URL || 'https://img2text-bot.herokuapp.com'
+  URL: process.env.URL || 'https://infinite-fortress-79609.herokuapp.com'
 }

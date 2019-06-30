@@ -12,6 +12,7 @@ const { PORT, URL, TOKEN } = require('./helpers/config')
 const bot = new Telegraf(TOKEN)
 const worker = new TesseractWorker()
 
+// Setup bot to deploy on Heroku
 bot.telegram.setWebhook(`${URL}/bot${TOKEN}`)
 bot.startWebhook(`/bot${TOKEN}`, null, PORT)
 
