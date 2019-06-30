@@ -6,21 +6,21 @@
 const Telegraf = require('telegraf')
 const { getFileId } = require('./funcs')
 const { TesseractWorker } = require('tesseract.js')
-const { PORT, TOKEN } = require('./helpers/config')
-const app = require('express')()
+const { TOKEN } = require('./helpers/config')
+// const app = require('express')()
 
 // Setup
 const bot = new Telegraf(TOKEN)
 const worker = new TesseractWorker()
 
 // Setup bot to deploy on Heroku
-app.get('/', (req, res) => {
-  res.send('BOT')
-})
+// app.get('/', (req, res) => {
+//   res.send('BOT')
+// })
 
-app.listen(PORT, () => {
-  console.log(`Listening on port ${port}`)
-})
+// app.listen(PORT, () => {
+//   console.log(`Listening on port ${port}`)
+// })
 
 // '/start' command
 bot.start(async ctx => {
