@@ -7,8 +7,7 @@ const Telegraf = require('telegraf')
 const { Markup } = Telegraf
 const bot = new Telegraf(process.env.BOT_TOKEN)
 const { getFileId } = require('./funcs')
-const Tesseract = require('tesseract.js')
-const { TesseractWorker } = Tesseract
+const { TesseractWorker } = require('tesseract.js')
 const worker = new TesseractWorker()
 
 bot.start(async ctx => {
@@ -34,9 +33,6 @@ bot.on(['photo', 'document'], async ctx => {
     .catch(e => {
       ctx.reply('Sorry, we could not recognize text on this image.', { reply_to_message_id: ctx.message.message_id })
     })
-    // .finally(() => {
-    //   worker.terminate()
-    // })
 })
 
 bot.launch()
