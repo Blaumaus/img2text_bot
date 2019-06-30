@@ -11,9 +11,8 @@ const { TesseractWorker } = require('tesseract.js')
 const worker = new TesseractWorker()
 
 bot.start(async ctx => {
-  await ctx.replyWithMarkdown(`Hi ${ctx.from.first_name || 'stranger'}, I am Text Detector.
-Send me any picture which contains text and I will return you it's text. English supported only.`,
-    Markup.removeKeyboard().extra()).catch(e => console.log(e))
+  await ctx.reply(`Hi ${ctx.from.first_name || 'stranger'}, I am Text Detector.
+Send me any picture which contains text and I will return you it's text. English supported only.`)
   // TODO: ERROR LOGGER (Winston)
 })
 
@@ -33,6 +32,10 @@ bot.on(['photo', 'document'], async ctx => {
     .catch(e => {
       ctx.reply('Sorry, we could not recognize text on this image.', { reply_to_message_id: ctx.message.message_id })
     })
+})
+
+bot.command('donate', async ctx => {
+  await ctx.replyWithMarkdown('You can support this bot by donating Bitcoin to that address - `1LxpKwoPb8FPeuvkwADspGZX38Kp6S2cz8`')
 })
 
 bot.launch()
